@@ -62,10 +62,9 @@ function($date, $type, $cache) {
 
     $key = $userId.'_'.$type.'_'.$date  
     
-    $result = ($cache->get($key)) ? return $cache->get($key);
+    $result = ($cache->get($key)) ? return $cache->get($key): $result = [];
 
     $dataList = SomeDataModel::find()->where(['date' => $date, 'type' => $type, 'user_id' => $userId])->all();
-    $result = [];
  
     if (!empty($dataList)) {
         foreach ($dataList as $dataItem) {
@@ -73,7 +72,7 @@ function($date, $type, $cache) {
         }
     }
 
-    $cache->set($key, $dataList);
+    $cache->set($key, $result);
  
     return $result;
 }
