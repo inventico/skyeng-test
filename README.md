@@ -101,7 +101,7 @@ ENGINE=InnoDB
 DEFAULT CHARSET=utf8
 COLLATE=utf8_general_ci;
 
-CREATE TABLE skyeng.cure (
+CREATE TABLE cure (
     medicine_id int NOT NULL,
     disase_id int NOT NULL,
     CONSTRAINT cure_medicine_FK FOREIGN KEY (medicine_id) REFERENCES skyeng.medicine(id) ON DELETE CASCADE ON UPDATE CASCADE,
